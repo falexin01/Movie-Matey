@@ -1,0 +1,29 @@
+.button{
+	-fx-background-color: rgb(96,96,96);
+	-fx-text-fill: white;
+	-fx-font-family: "Segoe UI Light";
+	-fx-background-radius: 0;
+}
+
+.button:hover{
+	-fx-background-color: white;
+	-fx-text-fill: black;
+}
+
+.text-field{
+	-fx-text-fill: white;
+	-fx-background-color: rgb(96,96,96);
+	-fx-border-radius: 0;
+ 	-fx-background-radius: 0;
+}
+
+#TITLE{
+	-fx-font-size: 1.5em;
+	-fx-font-family: "Segoe UI Light";
+}
+
+.label{
+	-fx-font-size: 1.25em;
+	-fx-font-family: "Segoe UI Semibold";
+	-fx-text-fill: white;
+}

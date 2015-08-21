@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #3C3C3C;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.alexin.address.view.RootLayoutController">
+   <top>
+      <StackPane>
+         <children>
+            <HBox alignment="CENTER_LEFT" style="-fx-background-color: black;">
+               <children>
+                  <AnchorPane HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER" layoutX="473.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <TextField fx:id="titleSearch" onKeyReleased="#search" promptText="Search" style="-fx-background-radius: 2em 0 0 2em; -fx-background-color: rgb(96,96,96); -fx-text-fill: white;">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin></TextField>
+                              <Button fx:id="genreButton" mnemonicParsing="false" onAction="#genresHandled" stylesheets="@MenuBar.css" text="+" HBox.hgrow="NEVER">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <ComboBox id="searchby" fx:id="searchBy" onAction="#searchByHandled" promptText="Search By" stylesheets="@MenuBar.css">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="1755.0" layoutY="5.0" spacing="5.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <ComboBox id="list" fx:id="listChoose" onAction="#chooseList" prefWidth="250.0" stylesheets="@MenuBar.css" HBox.hgrow="ALWAYS" />
+                              <ComboBox id="sortby" fx:id="sortBy" layoutX="1268.0" layoutY="5.0" onAction="#sort" promptText="Sort By" stylesheets="@MenuBar.css" AnchorPane.rightAnchor="5.0" />
+                           </children>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </HBox>
+                        <MenuBar layoutY="5.0" style="-fx-background-color: rgba(0,0,0,1);" stylesheets="@MenuBar.css" AnchorPane.leftAnchor="0.0" BorderPane.alignment="CENTER">
+                          <menus>
+                            <Menu mnemonicParsing="false" text="File">
+                              <items>
+                                    <Menu mnemonicParsing="false" text="Play Random">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#playRandomAll" text="From All" />
+                                          <MenuItem mnemonicParsing="false" onAction="#playRandomCur" text="From Current" />
+                                       </items>
+                                    </Menu>
+                                    <Menu mnemonicParsing="false" text="Advanced">
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#resetFileSizes" text="Reset File Sizes" />
+                                          <MenuItem mnemonicParsing="false" onAction="#setHQPosters" text="Set HQ Posters" />
+                                      </items>
+                                    </Menu>
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <Menu mnemonicParsing="false" text="Libraries">
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" onAction="#addRemoveLibraries" text="Add/Remove" />
+                                          <MenuItem mnemonicParsing="false" onAction="#syncLibraries" text="Sync" />
+                                      </items>
+                                    </Menu>
+                                    <MenuItem mnemonicParsing="false" onAction="#exportDatabase" text="Export Database" />
+                                    <MenuItem mnemonicParsing="false" onAction="#importDatabase" text="Import Database" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Close" />
+                              </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="Edit">
+                              <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#deleteEntry" text="Delete Movie" />
+                                	<MenuItem mnemonicParsing="false" onAction="#deleteList" text="Delete All" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" onAction="#addFile" text="Add File" />
+                                    <MenuItem fx:id="searchFolder" mnemonicParsing="false" onAction="#searchFolder" text="Search Folder" />
+                              </items>
+                            </Menu>
+                              <Menu mnemonicParsing="false" text="View">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#showTileView" text="Tile View">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="T" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator></MenuItem>
+                                    <MenuItem mnemonicParsing="false" onAction="#showListView" text="List View">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="UP" code="L" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator></MenuItem>
+                                    <MenuItem mnemonicParsing="false" onAction="#showStatisticsView" text="Statistics" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" onAction="#refresh" text="Refresh">
+                                       <accelerator>
+                                          <KeyCodeCombination alt="DOWN" code="F5" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                                       </accelerator>
+                                    </MenuItem>
+                                    <CustomMenuItem mnemonicParsing="false" text="Columns">
+                                       <content>
+                                          <HBox alignment="CENTER" spacing="5.0">
+                                             <children>
+                                                <Label text="Columns" />
+                                                <Slider fx:id="columns" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" onKeyReleased="#sliderAdjust" onMouseReleased="#sliderAdjust" showTickMarks="true" snapToTicks="true" value="7.0" />
+                                                <Label fx:id="numCols" text="7" />
+                                             </children>
+                                          </HBox>
+                                       </content>
+                                    </CustomMenuItem>
+                                 </items>
+                              </Menu>
+                          </menus>
+                        </MenuBar>
+                     </children>
+                  </AnchorPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </HBox>
+            <HBox fx:id="searchingBox" alignment="CENTER_LEFT" fillHeight="false" spacing="10.0" style="-fx-background-color: black;" visible="false">
+               <children>
+                  <Label text="Searching:" textFill="WHITE" />
+                  <ProgressBar fx:id="pb" prefWidth="600.0" progress="0.0" stylesheets="@MenuBar.css" />
+                  <Label fx:id="statusLabel" textFill="WHITE" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </StackPane>
+   </top>
+</BorderPane>

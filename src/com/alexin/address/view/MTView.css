@@ -1,0 +1,61 @@
+#Title{
+	-fx-font-size: 3em;
+	-fx-font-family: "Segoe UI Light";
+}
+
+.label{
+	-fx-font-size: 1.25em;
+	-fx-font-family: "Segoe UI Semibold";
+	-fx-text-fill: white;
+}
+
+.text-field{
+	-fx-border-radius: 1.5em 1.5em 0 0;
+ 	-fx-background-radius: 1.5em 1.5em 0 0;
+}
+
+.button{
+	-fx-text-fill: white;
+	-fx-background-color: #1d1d1d;
+}
+
+.button:hover{
+	-fx-text-fill: black;
+	-fx-background-color: white;
+}
+
+.list-view{
+	-fx-background-color: #1d1d1d;
+}
+
+.list-view .list-cell:filled:hover {
+    	-fx-background-color: white;
+    	-fx-text-fill: black;
+}
+
+.list-view .list-cell:odd {
+    	-fx-background-color: #1d1d1d;
+    	-fx-text-fill: white;
+	-fx-font-family: "Segoe UI Light";
+}
+
+.list-view .list-cell:even {
+    	-fx-background-color: transparent, derive(#1d1d1d,5%);
+    	-fx-text-fill: white;
+	-fx-font-family: "Segoe UI Light";
+}
+
+#IMDB{
+	-fx-border-radius: 0 0 0 0;
+ 	-fx-background-radius: 0 0 0 0;
+}
+
+#SEARCH{
+	-fx-border-radius: 0 0 0 0;
+ 	-fx-background-radius: 0 0 0 0;
+}
+
+#TITLE{
+	-fx-border-radius: 0 0 0 0;
+ 	-fx-background-radius: 0 0 0 0;
+}

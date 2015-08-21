@@ -1,0 +1,10 @@
+.bar-chart:vertical .chart-content .chart-plot-background{ 
+	-fx-background-color: transparent;
+}
+
+
+.label{
+    -fx-font-size: 1.8em;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+}
